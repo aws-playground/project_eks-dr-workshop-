@@ -15,18 +15,18 @@ Servic peccy is a simple web service to demonstrate eks-ha-dr project. Service p
 
 ## HA Single Cluster Architecture
 
-<img src="/image/architecture_HA_single_stable.png" width="400"/>
+<img src="/image/architecture_HA_single_stable.png" width="800"/>
 
-<img src="/image/architecture_HA_single_down.png" width="400"/>
+<img src="/image/architecture_HA_single_down.png" width="800"/>
 
 ## HA Multi Cluster Architecture
 
-<img src="/image/architecture_HA_multi_stable.png" width="400"/>
+<img src="/image/architecture_HA_multi_stable.png" width="800"/>
 
-<img src="/image/architecture_HA_multi_down.png" width="400"/>
+<img src="/image/architecture_HA_multi_down.png" width="800"/>
 
 ## DR Multi Cluster Architecture
 
-<img src="/image/architecture_DR_multi_stable.png" width="400"/>
+<img src="/image/architecture_DR_multi_stable.png" width="800"/>
 
-<img src="/image/architecture_DR_multi_down.png" width="400"/>
+<img src="/image/architecture_DR_multi_down.png" width="800"/>
