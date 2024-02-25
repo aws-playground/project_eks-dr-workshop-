@@ -39,7 +39,7 @@ Servic peccy is a simple web service to demonstrate eks-ha-dr project. Service p
   * Traffic distribution between EKS Clusters is done by Route 53.
   * Adjust the traffic ratio between EKS Clusters using Route53's weighted routing function.
 * Cross-AZ Traffic
-  * Since most Pods exist in only one AZ, Cross-AZ Traffic caused by communication between Pods is reduced, which reduces latency and traffic costs.
+  * Since most pods exist in only one AZ, Cross-AZ Traffic caused by communication between pods is reduced, which reduces latency and traffic costs.
 * HA in case of AZ failure
   * If an AZ failure occurs, traffic is not sent to the AZ where the failure occurred through Route 53's health check.
 
@@ -48,3 +48,20 @@ Servic peccy is a simple web service to demonstrate eks-ha-dr project. Service p
 <img src="/images/architecture-dr-multi-stable.png" width="800"/>
 
 <img src="/images/architecture-dr-multi-down.png" width="800"/>
+
+“DR Multi Cluster Architecture” is an architecture for DR with Active/Stand-by EKS Cluster.
+
+* Route53
+  * Through Route 53's Weighted Record function, all traffic is set to be transmitted only to the Active Cluster.
+* Active Cluster
+  * Active Cluster is a cluster where workload operates and receives traffic.
+  * Active Cluster consists of Multi-AZ.
+* Stand-by Cluster
+  * Stand-by Cluster is a preparation cluster for quick recovery when performing DR.
+  * Stand-by Cluster normally consists of only the Control Node Group.
+  * Karpenter is installed, but Karpenter pod is not operating because replica of Karpenter deployment is set to 0.
+  * Workload pod is deployed, but remains in Pending status because there are no EC2 Instances to be scheduled.
+* How to Perform DR
+  * Set replicaset of Karpenter deployment to 2.
+  * When Karpenter starts operating, it discovers a workload pod with a pending status and creates EC2 instances.
+  * Configure Route53 so that all traffic is sent to the stand-by cluster.
