@@ -13,7 +13,7 @@ eks-ha-dr is prototyping project for HA (High Availability) and DR (Disaster Rec
 
 ```bash
 # Get terraform code
-$ git clone https://github.com/ssup2-playground/eks-ha-dr_aws-terraform.git && rm ./eks-ha-dr_aws-terraform/terraform.tf
+$ git clone https://github.com/ssup2-playground/eks-ha-dr_aws-terraform.git && rm ./eks-ha-dr_aws-terraform/ha-single-cluster/terraform.tf && rm ./eks-ha-dr_aws-terraform/ha-multi-cluster/terraform.tf && rm ./eks-ha-dr_aws-terraform/dr-multi-region/terraform.tf
 
 # Run terraform for HA single cluster architecture
 $ cd eks-neuron_aws-terraform/ha-single-cluster
