@@ -7,6 +7,30 @@ eks-ha-dr is prototyping project for HA (High Availability) and DR (Disaster Rec
 * [service-peccy-app](https://github.com/ssup2-playground/common_service-peccy-app) : Service peccy's app server
 * [deploy-eks](https://github.com/aws-playground/eks-ha-dr_deploy-eks) : K8s manifests for deploying peccy service
 
+## Install
+
+* Run terraform
+
+```bash
+# Get terraform code
+$ git clone https://github.com/ssup2-playground/eks-ha-dr_aws-terraform.git && rm ./eks-ha-dr_aws-terraform/terraform.tf
+
+# Run terraform for HA single cluster architecture
+$ cd eks-neuron_aws-terraform/ha-single-cluster
+$ terraform init
+$ terraform apply
+
+# Run terraform for HA multi cluster architecture
+$ cd eks-neuron_aws-terraform/ha-multi-cluster
+$ terraform init
+$ terraform apply
+
+# Run terraform for DR multi region architecture
+$ cd eks-neuron_aws-terraform/dr-multi-region
+$ terraform init
+$ terraform apply
+```
+
 ## Service Peccy
 
 <img src="/images/screenshot-service-peccy-web.png" width="400"/>
@@ -26,6 +50,7 @@ Servic peccy is a simple web service to demonstrate eks-ha-dr project. Service p
   * Karpenter : Node group for workloads. Configured as Multi-AZ using K8s "Pod Topology Spread Constraints" feature.
 * HA in case of AZ failure
   * EKS Cluster consists of multiple AZs. so even if a failure occurs in one AZ, the workload can be maintained through the remaining AZs.
+
 
 ## HA Multi Cluster Architecture
 
